@@ -1,6 +1,6 @@
-# SiriUserbot - ChatBot Sql
+# SakirUserbot - ChatBot Sql
 
-#Credit: sandy1709
+#Credit: Sakirhackofficial99
 
 from sqlalchemy import Column, String, UnicodeText
 
