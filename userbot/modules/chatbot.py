@@ -4,9 +4,9 @@
 # you may not use this file except in compliance with the License.
 #
 
-# Siri UserBot - Berceste
+# SakirUserBot - SakirBey 
 
-# credit @sandy1709 
+# credit @Sakirhackofficial99
 #
 
 from userbot.events import register
