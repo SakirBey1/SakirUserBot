@@ -4,7 +4,7 @@
 # you may not use this file except in compliance with the License.
 #
 
-# SiriUserBot - Berceste
+# SakirUserBot - SakirBey 
 #
 
 """ UserBot yardım komutu """
@@ -17,13 +17,13 @@ from userbot.events import register
 # ██████ LANGUAGE CONSTANTS ██████ #
 
 from userbot.language import get_value
-LANG = get_value("__siri")
+LANG = get_value("__sakir")
 
 # ████████████████████████████████ #
 
 @register(outgoing=True, pattern="^.[Ss]iri(?: |$)(.*)")
 async def siri(event):
-    """ .siri komutun """
+    """ .sakir komutun """
     args = event.pattern_match.group(1).lower()
     if args:
         if args in CMD_HELP:
