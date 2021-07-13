@@ -4,7 +4,7 @@
 # you may not use this file except in compliance with the License.
 #
 
-# SiriUserBot - Berceste
+# SakirUserBot - SakirBey
 
 import os
 from telethon.tl.types import InputMessagesFilterDocument
@@ -28,7 +28,7 @@ LANG = get_value("__plugin")
 @register(outgoing=True, pattern="^.ma[gğ]aza ?(.*)")
 async def magaza(event):
     plugin = event.pattern_match.group(1)
-    await event.edit('** Siri Plugin Mağazası**\n__Versiyon 1.0__\n\n`🔎 Plugin\'i Getiriyorum, Lütfen Bekle!`')
+    await event.edit('** Sakir Plugin Mağazası**\n__Versiyon 1.0__\n\n`🔎 Plugin\'i Getiriyorum, Lütfen Bekle!`')
     split = plugin.split()
     if plugin == '':
         plugin = 'Son Yüklenen'
@@ -38,8 +38,8 @@ async def magaza(event):
         plugins = await event.client.get_messages(STORECHANNEL, limit=None, filter=InputMessagesFilterDocument)
         plugins = sample(plugins, int(split[1]) if len(split) == 2 else 5)
     else:
-        plugins = await event.client.get_messages('@siriaddon', limit=None, search=plugin, filter=InputMessagesFilterDocument)
-        random = await event.client.get_messages('@siriaddon', limit=None, filter=InputMessagesFilterDocument)
+        plugins = await event.client.get_messages('@Sakirplugin', limit=None, search=plugin, filter=InputMessagesFilterDocument)
+        random = await event.client.get_messages('@Sakirplugin', limit=None, filter=InputMessagesFilterDocument)
         random = choice(random)
         random_file = random.file.name
 
