@@ -4,9 +4,9 @@
 # you may not use this file except in compliance with the License.
 #
 
-# SiriUserBot - ErdemBey - Midy
+# SakirUserBot - SakirBey
 
-# Turkish word meaning. Only Turkish. Coded @By_Azade, Siri uyarlaması @erdembey1
+# Turkish word meaning. Only Turkish. Coded @SakirUserBot9, Sakir uyarlaması @Sakihackofficial99
 #
 
 import requests
