@@ -4,7 +4,7 @@
 # you may not use this file except in compliance with the License.
 #
 
-# SiriUserBot - Berceste
+# SakirUserBot - SakirBey
 
 
 """ Internet ile alakalı bilgileri edinmek için kullanılan UserBot modülüdür. """
@@ -51,7 +51,7 @@ async def speedtst(spd):
 
 def speed_convert(size):
     """
-    Merhaba Siri, baytları okuyamıyor musun?
+    Merhaba Sakir, baytları okuyamıyor musun?
     """
     power = 2**10
     zero = 0
@@ -75,7 +75,7 @@ async def neardc(event):
 async def pingme(pong):
     """ .ping komutu userbotun ping değerini herhangi bir sohbette gösterebilir.  """
     start = datetime.now()
-    await pong.edit("`Pong!`")
+    await pong.edit("`Ping!`")
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     await pong.edit("`Pong!\n%sms`" % (duration))
@@ -89,7 +89,7 @@ async def asistanping(ups):
         if ren == MYID:
             "Asistan pinge bakıyor"
             start = datetime.now()
-            usp = await ups.reply("`Pong!`")
+            usp = await ups.reply("`Ping!`")
             end = datetime.now()
             duration = (end - start).microseconds / 1000
             await usp.edit("`Pong!\n%sms`" % (duration))
