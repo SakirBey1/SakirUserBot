@@ -1,14 +1,14 @@
-# Copyright (C) 2020 Yusuf Usta.
+# Copyright (C) 2020 SakirBey.
 #
 # Licensed under the  GPL-3.0 License;
 # you may not use this file except in compliance with the License.
 #
 
-# SiriUserBot - ErdemBey - Berce
+# SakirUserBot - SakirBey 
 
-# @NaytSeyd tarafından portlanmıştır.
-# @frknkrc44 tarafından düzenlenmiştir.
-# @Fusuf tarafından AutoVideo yazılmıştır.
+# @Sakirhackofficial99 tarafından portlanmıştır.
+# @Sakirhackofficial99 tarafından düzenlenmiştir.
+# @Sakirhackofficial99 tarafından AutoVideo yazılmıştır.
 
 import os
 from datetime import datetime
