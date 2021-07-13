@@ -1,5 +1,5 @@
 """
-               SİRİUSERBOT  -  BERCE
+               SAKİRUSERBOT  -  SAKİRBEY
 """
 import os
 from telethon.tl.functions.contacts import UnblockRequest
