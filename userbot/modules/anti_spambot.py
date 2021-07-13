@@ -4,7 +4,7 @@
 # you may not use this file except in compliance with the License.
 #
 
-# SiriUserBot - Berceste
+# SakirUserBot - SakirBey 
 #
 
 ''' Gruba katılan spamcıları banlamada yardımcı olan modüldür. '''
