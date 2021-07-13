@@ -4,7 +4,7 @@
 # you may not use this file except in compliance with the License.
 #
 
-# SiriUserBot - ErdemBey - Midy
+# SakirUserBot - SakirBey
 
 
 """ Hash ve encode/decode çözme komutlarını içeren UserBot modülü. """
