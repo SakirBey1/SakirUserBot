@@ -18,9 +18,9 @@ async def sirinsta(event):
     chat = "@SaveAsbot"
     reply_message.sender
     if reply_message.sender.bot:
-        await event.edit("`Siri İndiremedi Bazı Hatalar Nedeniyle Başka Link Dene Be Tatlım ✓`")
+        await event.edit("`Sakir İndiremedi Bazı Hatalar Nedeniyle Başka Link Dene Be Tatlım ✓`")
         return
-    asc = await event.edit("`Siri Yüklüyor Sabırlı Ol...`")
+    asc = await event.edit("`Sakir Yüklüyor kanka lütfen biraz  Sabırlı Ol...`")
     async with event.client.conversation(chat) as conv:
         try:
             response = conv.wait_event(
@@ -44,7 +44,7 @@ async def sirinsta(event):
             await event.client.send_file(
                 event.chat_id,
                 response.message.media,
-                caption=f"@SiriUserBot `ile yüklendi`",
+                caption=f"@SakirUserBot9 `ile yüklendi`",
             )
             await event.client.send_read_acknowledge(conv.chat_id)
             
