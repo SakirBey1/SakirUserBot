@@ -1,16 +1,16 @@
-# SiriUserBot •_• # Erdem - Berceste
+# SakirUserBot - SakirBey
 
 from telethon.tl import functions, types
 from userbot import CMD_HELP
 from userbot.events import register
 
-#Siri Yapıyor Bişiler
+#Sakir Yapıyor Bişiler
 
 @register(outgoing=True, pattern="^.yap (1|2|3)(?: |$)(.*)")
 
 async def telegraphs(grup):
 
-    """ .yap command,Sipariş Alındı Siri Yapmaya Başladı... :)  """
+    """ .yap command,Sipariş Alındı Sakir Yapmaya Başladı... :)  """
 
     if not grup.text[0].isalpha() and grup.text[0] not in ("/", "#", "@", "!"):
 
@@ -64,7 +64,7 @@ async def telegraphs(grup):
 
                     title=group_name,
 
-                    about="SiriUserbot Tarafından Yapılmıştır",
+                    about="SakirUserbot Tarafından Yapılmıştır",
 
                     megagroup=False if type_of_group == "3" else True
 
