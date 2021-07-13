@@ -4,7 +4,7 @@
 # you may not use this file except in compliance with the License.
 #
 
-# SiriUserBot - Berceste
+# SakirUserBot - SakirBey
 
 
 """ Sunucu hakkında bilgi veren UserBot modülüdür. """
@@ -100,7 +100,7 @@ async def bot_ver(event):
                          "`")
     else:
         await event.edit(
-            "Siri Dinlemede!!!"
+            "Sakir Dinlemede!!!"
         )
 
 
@@ -154,7 +154,7 @@ async def amialive(e):
             await e.edit(PLUGIN_MESAJLAR['alive'].format(
                 telethon=version.__version__,
                 python=python_version(),
-                siri=SIRI_VERSION,
+                sakir=SAKIR_VERSION,
                 plugin=len(CMD_HELP),
                 id=me.id,
                 worktime = await timesiri.get_readable_time((emit() - WORKTIME)),
@@ -170,7 +170,7 @@ async def amialive(e):
                 PLUGIN_MESAJLAR['alive'].text = PLUGIN_MESAJLAR['alive'].text.format(
                     telethon=version.__version__,
                     python=python_version(),
-                    siri=SIRI_VERSION,
+                    sakir=SAKIR_VERSION,
                     plugin=len(CMD_HELP),
                     id=me.id,
                     worktime = await timesiri.get_readable_time((emit() - WORKTIME)),
@@ -195,8 +195,8 @@ async def asistanalive(ups):
         hitap = "💝 ʕっ•ᴥ•ʔっ Asistan"
     else:
         hitap = "💪🏻(･–･) \(･◡･)/ Yöneticim"
-    SiriVer = str(SIRI_VERSION.replace("v","")) 
-    await ups.reply(f"__{hitap} seni seviyorum! Siri çalışıyor!__")
+    SakirVer = str(SAKIR_VERSION.replace("v","")) 
+    await ups.reply(f"__{hitap} seni seviyorum! Sakir çalışıyor!__")
 
 
 CmdHelp('system_stats').add_command(
