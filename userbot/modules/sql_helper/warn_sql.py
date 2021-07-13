@@ -1,5 +1,5 @@
 # WARN PLUGIN #
-# SiriUserBot - ErdemBey - Midy #
+# SakirUserBot - SakirBey #
 
 import threading
 from sqlalchemy import func, distinct, Column, String, UnicodeText, Integer
