@@ -1,6 +1,6 @@
 {
-  "name": "Siri UserBot",
-  "description": "Siri UserBot",
+  "name": "Sakir UserBot",
+  "description": "Sakir UserBot",
   "logo": "https://telegra.ph/Space-01-17",
   "keywords": [
     "telegram",
@@ -10,9 +10,9 @@
     "modular",
     "productivity"
   ],
-  "repository": "https://github.com/ErdemBey1/SiriUserBot",
-  "website":   "https://t.me/Codlar",
-  "success_url": "https://t.me/SiriChat",
+  "repository": "https://github.com/SakirBey1/sakiruserbot",
+  "website":   "https://t.me/SakirUserBot1",
+  "success_url": "https://t.me/SakirUserBot1",
   "stack": "container",
   "env": {
     "API_KEY": {
@@ -59,7 +59,7 @@
     },
     "UPSTREAM_REPO_URL": {
       "description": "Fork sağlamanız durumunda repo URL'nizi buraya ekleyin. Varsayılan olarak kendi repo adresimiz eklidir.",
-      "value": "https://github.com/ErdemBey1/SiriUserBot",
+      "value": "https://github.com/SakirBey1/sakiruserbot",
       "required": true
     },
     "COUNTRY": {
@@ -96,7 +96,7 @@
       "value": "False"
     },
     "BOT_USERNAME": {
-      "description": "Inline bot özelliğinin çalışması için gereklidir. Buraya botunuzun kullanıcı adınız yazmanız lazım (Örnek: @SiriBot). Botunuz yok ise @BotFather yardımı ile bot oluşturabilirsiniz.",
+      "description": "Inline bot özelliğinin çalışması için gereklidir. Buraya botunuzun kullanıcı adınız yazmanız lazım (Örnek: @SakirUserBot1). Botunuz yok ise @BotFather yardımı ile bot oluşturabilirsiniz.",
       "required": false  
     },
     "BOT_TOKEN": {
@@ -186,7 +186,7 @@
     }, 
     "DEFAULT_BIO": {
       "description": "Varsayılan profil biyografisi.",
-      "value": "@SiriUserBot",
+      "value": "@SakirUserBot1",
       "required": false
     },
     "G_DRIVE_CLIENT_SECRET": {
