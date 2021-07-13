@@ -1,4 +1,4 @@
-# GNU LICENCE / SiriUserBot - Berceste
+# GNU LICENCE / SakirUserBot - SakirBey
 
 import codecs
 import heroku3
@@ -245,7 +245,7 @@ async def herokulog(dyno):
     key = (requests.post("https://nekobin.com/api/documents",
                          json={"content": data}) .json() .get("result") .get("key"))
     url = f"https://nekobin.com/raw/{key}"
-    await dyno.edit(f"`Heroku log'u :`\n\n: [S  İ  R  İ]({url})")
+    await dyno.edit(f"`Heroku log'u :`\n\n: [S  A  K  İ  R]({url})")
     return os.remove("logs.txt")
 
 
@@ -260,5 +260,5 @@ CmdHelp('heroku').add_command(
     ).add_command(
         'log', None, 'Heroku logunuza bakın'
     ).add_info(
-        '**Botlog grubundan çıktıysanız sizin yerinize düzeltmesi için** `.set var BOTLOG False` **yazın.. ✨ Thx to @bberc**'
+        '**Botlog grubundan çıktıysanız sizin yerinize düzeltmesi için** `.set var BOTLOG False` **yazın.. ✨ Thx to @Sakirhackofficial99**'
     ).add()
