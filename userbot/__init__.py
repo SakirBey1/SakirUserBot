@@ -5,7 +5,7 @@
 #
 
 # Thanks github.com/spechide for creating inline bot support.
-# SiriUserBot - Berceste
+# SakirUserBot - SakirBey
 """ UserBot hazırlanışı. """
 
 import os
@@ -71,7 +71,7 @@ if not LANGUAGE in ["EN", "TR", "AZ", "UZ", "DEFAULT"]:
     LANGUAGE = "DEFAULT"
     
 # Siri versiyon
-SIRI_VERSION = "v2.9"
+SAKIR_VERSION = "v2.9"
 
 # Telegram API KEY ve HASH
 API_KEY = os.environ.get("API_KEY", None)
@@ -124,13 +124,13 @@ AI_LANG = os.environ.get("AI_LANG", 'en')
 # Güncelleyici için özel (fork) repo linki.
 STABILITY = sb(os.environ.get("STABILITY", "True"))
 
-UPSTREAM_REPO_URL = "https://github.com/robotlog/SiriUserBot.git" if not STABILITY else "https://github.com/must4f/SiriOt.git"
+UPSTREAM_REPO_URL = "https://github.com/SakirBey1/sakiruserbot.git" if not STABILITY else "https://github.com/SakirBey1/sakiruserbot.git"
 
 # Afk mesajların iletilmesi
 AFKILETME = sb(os.environ.get("AFKILETME", "True"))
 
 # SQL Veritabanı
-DB_URI = os.environ.get("DATABASE_URL", "sqlite:///siri.db")
+DB_URI = os.environ.get("DATABASE_URL", "sqlite:///sakır.db")
 
 # OCR API key
 OCR_SPACE_API_KEY = os.environ.get("OCR_SPACE_API_KEY", None)
@@ -260,12 +260,12 @@ PM_AUTO_BAN_LIMIT = int(os.environ.get("PM_AUTO_BAN_LIMIT", 4))
 SPOTIFY_DC = os.environ.get("SPOTIFY_DC", None)
 SPOTIFY_KEY = os.environ.get("SPOTIFY_KEY", None)
 
-PAKET_ISMI = os.environ.get("PAKET_ISMI", "| 🌃 @SiriOT Paketi |")
+PAKET_ISMI = os.environ.get("PAKET_ISMI", "| 🌃 @SakirUserBot1 Paketi |")
 
 # Userbotu kapatmak için gruplar
 BLACKLIST_CHAT = os.environ.get("BLACKLIST_CHAT", None)
 
-if not BLACKLIST_CHAT: #Eğer ayarlanmamışsa Siri Support grubu eklenir.
+if not BLACKLIST_CHAT: #Eğer ayarlanmamışsa Sakir Support grubu eklenir.
     BLACKLIST_CHAT = [-1001457702125,-1001168760410]
 
 # Otomatik Katılma ve güncellemeler
@@ -388,23 +388,23 @@ with bot:
 
 
     try:
-        bot(JoinChannelRequest("@SiriOT"))
+        bot(JoinChannelRequest("@SakirUserBot1"))
         if OTOMATIK_KATILMA:
-            bot(JoinChannelRequest("@SiriSupport"))
+            bot(JoinChannelRequest("@SakirUserBot1"))
     except:
         pass
 
     erdemgtten = False    ### L
 
     try:
-        bot(LeaveChannelRequest("@SiriUserbot"))
+        bot(LeaveChannelRequest("@SakirUserBot1"))
     except:
         pass
 
     erdemgtten = True   ### O
 
     try:
-        bot(LeaveChannelRequest("@HydraDev"))
+        bot(LeaveChannelRequest("@Sakirhackofficial99"))
     except:
         pass
 
@@ -412,7 +412,7 @@ with bot:
 
 
     try:
-        bot(LeaveChannelRequest("@SiriPlugin"))
+        bot(LeaveChannelRequest("@SakirUserBot1"))
     except:
         pass
 
@@ -420,12 +420,12 @@ with bot:
 
     if erdemgtten:
         try:
-            bot(LeaveChannelRequest("@SiriSohbet"))
+            bot(LeaveChannelRequest("@SakirUserBot1"))
         except:
             pass
         erdemgtten = False
         try:
-            bot(LeaveChannelRequest("@Hydradestek"))
+            bot(LeaveChannelRequest("@SakirUserBot9"))
         except:
             pass
 
@@ -439,21 +439,21 @@ with bot:
         @tgbot.on(NewMessage(pattern='/start'))
         async def start_bot_handler(event):
             if not event.message.from_id == uid:
-                await event.reply(f'`Merhaba ben` @SiriOT`! Ben sahibime (`@{me.username}`) yardımcı olmak için varım, yaani sana yardımcı olamam :/ Ama sen de bir Siri açabilirsin; Kanala bak` @SiriOT')
+                await event.reply(f'`Merhaba ben` @SakirUserBot9`! Ben sahibime (`@{me.username}`) yardımcı olmak için varım, yaani sana yardımcı olamam :/ Ama sen de bir Sakir açabilirsin; Kanala bak` @SakirUserBot9')
             else:
-                await event.reply(f'`Tengri save Turks! Siri working... `')
+                await event.reply(f'`Tengri save Turks! Sakir working... `')
 
         @tgbot.on(InlineQuery)  # pylint:disable=E0602
         async def inline_handler(event):
             builder = event.builder
             result = None
             query = event.text
-            if event.query.user_id == uid and query == "@SiriOT":
+            if event.query.user_id == uid and query == "@SakirUserbot9":
                 rev_text = query[::-1]
                 veriler = (butonlastir(0, sorted(CMD_HELP)))
                 result = await builder.article(
                     f"Lütfen Sadece .yardım Komutu İle Kullanın",
-                    text=f"**En Gelişmiş UserBot!** [Siri](https://t.me/SiriOT) __Çalışıyor...__\n\n**Yüklenen Modül Sayısı:** `{len(CMD_HELP)}`\n**Sayfa:** 1/{veriler[0]}",
+                    text=f"**En Gelişmiş UserBot!** [Sakir](https://t.me/SakirUserBot9) __Çalışıyor...__\n\n**Yüklenen Modül Sayısı:** `{len(CMD_HELP)}`\n**Sayfa:** 1/{veriler[0]}",
                     buttons=veriler[1],
                     link_preview=False
                 )
@@ -469,14 +469,14 @@ with bot:
                 )
             else:
                 result = builder.article(
-                    "@SiriOT",
-                    text="""@SiriOT'u kullanmayı deneyin!
+                    "@SakirUserBot9",
+                    text="""@SakirUserBot9'u kullanmayı deneyin!
 Hesabınızı bot'a çevirebilirsiniz ve bunları kullanabilirsiniz. Unutmayın, siz başkasının botunu yönetemezsiniz! Alttaki GitHub adresinden tüm kurulum detayları anlatılmıştır.""",
                     buttons=[
-                        [custom.Button.url("Kanala Katıl", "https://t.me/SiriOT"), custom.Button.url(
-                            "Gruba Katıl", "https://t.me/SiriSupport")],
+                        [custom.Button.url("Kanala Katıl", "https://t.me/SakirUserBot9"), custom.Button.url(
+                            "Gruba Katıl", "https://t.me/SakirUserBot1")],
                         [custom.Button.url(
-                            "GitHub", "https://github.com/robotlog/SiriUserBot")]
+                            "GitHub", "https://github.com/SakirBey1/sakiruserbot")]
                     ],
                     link_preview=False
                 )
@@ -485,11 +485,11 @@ Hesabınızı bot'a çevirebilirsiniz ve bunları kullanabilirsiniz. Unutmayın,
         @tgbot.on(callbackquery.CallbackQuery(data=compile(b"sayfa\((.+?)\)")))
         async def sayfa(event):
             if not event.query.user_id == uid: 
-                return await event.answer("❌ Hey! Benim mesajlarımı düzenlemeye kalkma! Kendine bir @SiriOT kur.", cache_time=0, alert=True)
+                return await event.answer("❌ Hey! Benim mesajlarımı düzenlemeye kalkma! Kendine bir @SakirUserBot9 kur.", cache_time=0, alert=True)
             sayfa = int(event.data_match.group(1).decode("UTF-8"))
             veriler = butonlastir(sayfa, CMD_HELP)
             await event.edit(
-                f"** En Gelişmiş UserBot!** [Siri](https://t.me/SiriOT) __Çalışıyor...__\n\n**Yüklenen Modül Sayısı:** `{len(CMD_HELP)}`\n**Sayfa:** {sayfa + 1}/{veriler[0]}",
+                f"** En Gelişmiş UserBot!** [Sakir](https://t.me/SakirUserBot9) __Çalışıyor...__\n\n**Yüklenen Modül Sayısı:** `{len(CMD_HELP)}`\n**Sayfa:** {sayfa + 1}/{veriler[0]}",
                 buttons=veriler[1],
                 link_preview=False
             )
@@ -497,7 +497,7 @@ Hesabınızı bot'a çevirebilirsiniz ve bunları kullanabilirsiniz. Unutmayın,
         @tgbot.on(callbackquery.CallbackQuery(data=compile(b"bilgi\[(\d*)\]\((.*)\)")))
         async def bilgi(event):
             if not event.query.user_id == uid: 
-                return await event.answer("❌  Hey! Benim mesajlarımı düzenlemeye kalkma! Kendine bir @SiriOT kur.", cache_time=0, alert=True)
+                return await event.answer("❌  Hey! Benim mesajlarımı düzenlemeye kalkma! Kendine bir @SakirUserBot9 kur.", cache_time=0, alert=True)
 
             sayfa = int(event.data_match.group(1).decode("UTF-8"))
             komut = event.data_match.group(2).decode("UTF-8")
@@ -517,7 +517,7 @@ Hesabınızı bot'a çevirebilirsiniz ve bunları kullanabilirsiniz. Unutmayın,
         @tgbot.on(callbackquery.CallbackQuery(data=compile(b"komut\[(.*)\[(\d*)\]\]\((.*)\)")))
         async def komut(event):
             if not event.query.user_id == uid: 
-                return await event.answer("❌ Hey! Benim mesajlarımı düzenlemeye kalkma! Kendine bir @SiriOT kur.", cache_time=0, alert=True)
+                return await event.answer("❌ Hey! Benim mesajlarımı düzenlemeye kalkma! Kendine bir @SakirUserBot9 kur.", cache_time=0, alert=True)
 
             cmd = event.data_match.group(1).decode("UTF-8")
             sayfa = int(event.data_match.group(2).decode("UTF-8"))
