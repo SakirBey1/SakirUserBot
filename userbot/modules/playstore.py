@@ -1,4 +1,4 @@
-# SiriUserBot - ErdemBey - Berceste - Midy
+# SakirUserBot - SakirBey
 
 import bs4
 import requests
