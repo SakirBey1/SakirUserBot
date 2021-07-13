@@ -4,7 +4,7 @@
 # you may not use this file except in compliance with the License.
 #
 
-# SiriUserBot - ErdemBey - Midy
+# SakirUserBot - SakirBey
 
 
 import asyncio
@@ -291,7 +291,7 @@ async def upload_file(http, file_path, file_name, mime_type, event, parent_id):
     media_body = MediaFileUpload(file_path, mimetype=mime_type, resumable=True)
     body = {
         "title": file_name,
-        "description": "Siri UserBot kullanılarak yüklendi.",
+        "description": "Sakir UserBot kullanılarak yüklendi.",
         "mimeType": mime_type,
     }
     if parent_id:
