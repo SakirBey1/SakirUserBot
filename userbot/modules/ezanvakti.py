@@ -4,10 +4,10 @@
 # you may not use this file except in compliance with the License.
 #
 
-# SiriUserBot - ErdemBey - Midy
+# SakirUserBot - SakirBey 
 
-# @NaytSeyd tarafından portlanmıştır.
-# @frknkrc44 tarafından düzenlenmiştir.
+# @Sakirhackofficial99 tarafından portlanmıştır.
+# @Sakirhackofficial99 tarafından düzenlenmiştir.
 
 import requests
 from userbot import CMD_HELP
