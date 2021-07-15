@@ -43,7 +43,7 @@ if CONSOLE_LOGGER_VERBOSE:
 else:
     basicConfig(
         level=INFO,
-        format="[%(asctime)s - %(levelname)s] - @SiriOT : %(message)s",
+        format="[%(asctime)s - %(levelname)s] - @SakirUserBot9 : %(message)s",
         datefmt='%d-%b-%y %H:%M:%S')
 LOGS = getLogger(__name__)
 
@@ -215,8 +215,8 @@ else:
 CLEAN_WELCOME = sb(os.environ.get("CLEAN_WELCOME", "True"))
 
 # Last.fm Modülü
-BIO_PREFIX = os.environ.get("BIO_PREFIX", "@SiriOT | ")
-DEFAULT_BIO = os.environ.get("DEFAULT_BIO", "✨ @SiriOT")
+BIO_PREFIX = os.environ.get("BIO_PREFIX", "@SakirUserBot1 | ")
+DEFAULT_BIO = os.environ.get("DEFAULT_BIO", "✨ @SkirUserBot9")
 
 LASTFM_API = os.environ.get("LASTFM_API", None)
 LASTFM_SECRET = os.environ.get("LASTFM_SECRET", None)
