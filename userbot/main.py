@@ -4,7 +4,7 @@
 # you may not use this file except in compliance with the License.
 #
 
-# Sakir UserBot - Berceste
+# Sakir UserBot - SakirBey
 
 """ UserBot başlangıç noktası """
 import importlib
@@ -15,7 +15,7 @@ import requests
 from telethon.tl.types import InputMessagesFilterDocument
 from telethon.errors.rpcerrorlist import PhoneNumberInvalidError
 from telethon.tl.functions.channels import GetMessagesRequest
-from . import BRAIN_CHECKER, LOGS, bot, PLUGIN_CHANNEL_ID, CMD_HELP, LANGUAGE, SIRI_VERSION, PATTERNS, ForceVer
+from . import BRAIN_CHECKER, LOGS, bot, PLUGIN_CHANNEL_ID, CMD_HELP, LANGUAGE, SAKIR_VERSION, PATTERNS, ForceVer
 from .modules import ALL_MODULES
 import userbot.modules.sql_helper.mesaj_sql as MSJ_SQL
 import userbot.modules.sql_helper.galeri_sql as GALERI_SQL
