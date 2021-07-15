@@ -38,7 +38,7 @@ ASYNC_POOL = []
 if CONSOLE_LOGGER_VERBOSE:
     basicConfig(
         level=DEBUG,
-        format="[%(asctime)s - %(levelname)s] - @SiriOT : %(message)s",
+        format="[%(asctime)s - %(levelname)s] - @SakirUserBot9 : %(message)s",
         datefmt='%d-%b-%y %H:%M:%S')
 else:
     basicConfig(
@@ -70,7 +70,7 @@ if not LANGUAGE in ["EN", "TR", "AZ", "UZ", "DEFAULT"]:
     LOGS.info("Bilinmeyen bir dil yazdınız. Bundan dolayı DEFAULT kullanılıyor.")
     LANGUAGE = "DEFAULT"
     
-# Siri versiyon
+# Sakir versiyon
 SAKIR_VERSION = "v2.9"
 
 # Telegram API KEY ve HASH
@@ -160,7 +160,7 @@ WORKTIME = time.time()
 
 PLUGINID = os.environ.get("PLUGIN_CHANNEL_ID", None)
 
-STORECHANNEL = os.environ.get("STORECHANNEL", '@siriaddon')
+STORECHANNEL = os.environ.get("STORECHANNEL", '@Sakirplugin')
 
 if not PLUGINID:
     PLUGIN_CHANNEL_ID = "me"
