@@ -36,7 +36,6 @@ from requests import get
 from search_engine_parser import GoogleSearch
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
-from google_trans_new import LANGUAGES, google_translator
 from gtts import gTTS
 from gtts.lang import tts_langs
 from emoji import get_emoji_regexp
@@ -45,17 +44,15 @@ from youtube_dl.utils import (DownloadError, ContentTooShortError,
                               ExtractorError, GeoRestrictedError,
                               MaxDownloadsReached, PostProcessingError,
                               UnavailableVideoError, XAttrMetadataError)
-from asyncio import sleep
-from userbot import CMD_HELP, BOTLOG, bot, BOTLOG_CHATID, YOUTUBE_API_KEY, CHROME_DRIVER, GOOGLE_CHROME_BIN
+from userbot import CMD_HELP, BOTLOG, BOTLOG_CHATID, YOUTUBE_API_KEY, CHROME_DRIVER, GOOGLE_CHROME_BIN
+from userbot.helps.forc import *
 from userbot.events import register
 from telethon.tl.types import DocumentAttributeAudio
 from userbot.modules.upload_download import progress, humanbytes, time_formatter
-from ImageDown import ImageDown
+from google_images_download.google_images_download import googleimagesdownload
 import base64, binascii
 import random
 from userbot.cmdhelp import CmdHelp
-from telethon.errors.rpcerrorlist import YouBlockedUserError
-from telethon.tl.types import DocumentAttributeAudio
 from telethon import events
 
 
@@ -65,15 +62,12 @@ TRT_LANG = "tr"
 LAN = {"Diller":
       [{"Türkçe":"tr",
        "İngilizce" : "en"}]}
-
-
-from telethon import events
 import subprocess
 from telethon.errors import MessageEmptyError, MessageTooLongError, MessageNotModifiedError
 import io
 import glob
 
-@register(pattern="^.tts2 (.*)", outgoing=True)
+@register(pattern="^.tts2 (.*)")
 async def tts2(query):
     textx = await query.get_reply_message()
     mesj = query.pattern_match.group(1)
@@ -100,7 +94,7 @@ async def tts2(query):
     os.remove("h.mp3")
     await query.delete()
 
-@register(pattern="^.reddit ?(.*)", outgoing=True)
+@register(pattern="^.reddit ?(.*)")
 async def reddit(event):
     sub = event.pattern_match.group(1)
     headers = {
@@ -137,7 +131,7 @@ async def reddit(event):
             print(e)
             await event.edit(mesaj + "\n\n`" + veri["selftext"] + "`")
 
-@register(pattern="^.twit ?(.*)", outgoing=True)
+@register(pattern="^.twit ?(.*)")
 async def twit(event):
     hesap = event.pattern_match.group(1)
     if len(hesap) < 1:
@@ -199,7 +193,7 @@ async def twit(event):
         await event.edit(f"**{hesap}**\n{twit['time']}\n\n`{twit['text']}`\n\n💬{twit['replies']} 🔁{twit['retweets']} ❤️{twit['likes']}")
         return
         
-@register(outgoing=True, pattern="^.haber(?: |$)(.*)")
+@register(pattern="^.haber(?: |$)(.*)")
 async def haber(event):
     TURLER = ["guncel", "magazin", "spor", "ekonomi", "politika", "dunya"]
     cmd = event.pattern_match.group(1)
@@ -225,11 +219,11 @@ async def haber(event):
 
     await event.edit(f"**Son Dakika Haberler {cmd.title()}**" + HABERLER)
 
-@register(outgoing=True, pattern="^.karbon ?(.*)")
+@register(pattern="^.karbon ?(.*)")
 async def karbon(e):
     cmd = e.pattern_match.group(1)
-    if os.path.exists("@SakirUserBot9-Karbon.jpg"):
-        os.remove("@SakirUserBot9-Karbon.jpg")
+    if os.path.exists("@SiriUserBot-Karbon.jpg"):
+        os.remove("@SiriUserBot-Karbon.jpg")
 
     if len(cmd) < 1:
         await e.edit("Kullanım: .karbon mesaj")    
@@ -240,20 +234,20 @@ async def karbon(e):
 
     r = get(f"https://carbonnowsh.herokuapp.com/?code={cmd}")
 
-    with open("@SakirUserBot9-Karbon.jpg", 'wb') as f:
+    with open("@SiriUserBot-Karbon.jpg", 'wb') as f:
         f.write(r.content)    
 
-    await e.client.send_file(e.chat_id, file="@SakirUserBot9-Karbon.jpg", force_document=True, caption="[SakirUserBot](https://t.me/SakirUserBot9) ile oluşturuldu.")
+    await e.client.send_file(e.chat_id, file="@SiriUserBot-Karbon.jpg", force_document=True, caption="[SakirUserBot](https://t.me/SakirUserBot9) ile oluşturuldu.")
     await e.delete()
 
-@register(outgoing=True, pattern="^.crblang (.*)")
+@register(pattern="^.crblang (.*)")
 async def setlang(prog):
     global CARBONLANG
     CARBONLANG = prog.pattern_match.group(1)
     await prog.edit(f"Karbon modülü için varsayılan dil {CARBONLANG} olarak ayarlandı.")
 
 
-@register(outgoing=True, pattern="^.carbon")
+@register(pattern="^.carbon")
 async def carbon_api(e):
     """ carbon.now.sh için bir çeşit wrapper """
     await e.edit("`İşleniyor...`")
@@ -302,6 +296,7 @@ async def carbon_api(e):
     await e.edit("`İşleniyor...\nTamamlanma Oranı: 100%`")
     file = './carbon.png'
     await e.edit("`Resim karşıya yükleniyor...`")
+    await e.delete()  # Mesaj siliniyor
     await e.client.send_file(
         e.chat_id,
         file,
@@ -314,9 +309,8 @@ async def carbon_api(e):
     os.remove('./carbon.png')
     driver.quit()
     # Karşıya yüklemenin ardından carbon.png kaldırılıyor
-    await e.delete()  # Mesaj siliniyor
 
-@register(outgoing=True, pattern="^.ceviri")
+@register(pattern="^.ceviri")
 async def ceviri(e):
     # http://www.tamga.org/2016/01/web-tabanl-gokturkce-cevirici-e.html #
     await e.edit("`Çeviriliyor...`")
@@ -340,7 +334,7 @@ async def ceviri(e):
     await e.edit(f"**Çeviri: Türkçe -> KökTürkçe**\n\n**Verilen Metin:** `{pcode}`\n**Çıktı:** `{Turk}`")
 
 
-@register(outgoing=True, pattern="^.img((\d*)| ) ?(.*)")
+@register(pattern="^.img((\d*)| ) ?(.*)")
 async def img_sampler(event):
     """ .img komutu Google'da resim araması yapar. """
     await event.edit("`İşleniyor...`")
@@ -348,22 +342,26 @@ async def img_sampler(event):
     if event.pattern_match.group(2):
         try:
             limit = int(event.pattern_match.group(2))
+            if limit > 10:
+                limit=10
         except:
-            return await event.edit('**Lütfen düzgün bir biçimde kelimenizi yazınız!**\nÖrnek: `.img system of a down`')
+            return await event.edit('**Lütfen düzgün bir biçimde kelimenizi yazınız!**\nÖrnek: `.img5 system of a down`')
     else:
         limit = 5
     await event.edit(f"`{limit} adet {query} resimi indiriliyor...`")
-    ig = ImageDown().Yandex(query, limit)
-    ig.get_urls()
-    paths = ig.download()
-    await event.edit('`Telegram\'a Yükleniyor...`')
-    await event.client.send_file(event.chat_id, paths, caption=f'**İşte** `{limit}` **adet** `{query}` **resimi**')
+    response = googleimagesdownload()
+    paths = response.download({"keywords": query,"limit": limit,"format": "jpg","no_directory": "no_directory",})
+    await event.edit("`Telegram'a Yükleniyor...`")
+    await event.client.send_file(event.chat_id, paths[0][query], caption=f'**İşte** `{limit}` **adet** `{query}` **resimi**')
     await event.delete()
 
     for path in paths:
-        os.remove(path)
+        try:
+            os.remove(path)
+        except:
+            pass
 
-@register(outgoing=True, pattern="^.currency ?(.*)")
+@register(pattern="^.currency ?(.*)")
 async def moni(event):
     input_str = event.pattern_match.group(1)
     input_sgra = input_str.split(" ")
@@ -391,7 +389,7 @@ async def moni(event):
         return
 
 
-@register(outgoing=True, pattern=r"^.google ?(.*)")
+@register(pattern=r"^.google ?(.*)")
 async def gsearch(q_event):
     """ .google  """
     match = q_event.pattern_match.group(1)
@@ -425,7 +423,7 @@ async def gsearch(q_event):
         )
 
 
-@register(outgoing=True, pattern=r"^.wiki (.*)")
+@register(pattern=r"^.wiki (.*)")
 async def wiki(wiki_q):
     """ .wiki komutu Vikipedi üzerinden bilgi çeker. """
     match = wiki_q.pattern_match.group(1)
@@ -457,7 +455,7 @@ async def wiki(wiki_q):
             BOTLOG_CHATID, f"{match}` teriminin Wikipedia sorgusu başarıyla gerçekleştirildi!`")
 
 
-@register(outgoing=True, pattern="^.ud (.*)")
+@register(pattern="^.ud (.*)")
 async def urban_dict(ud_e):
     """ .ud komutu Urban Dictionary'den bilgi çeker. """
     await ud_e.edit("İşleniyor...")
@@ -497,7 +495,7 @@ async def urban_dict(ud_e):
         await ud_e.edit(query + "**için hiçbir sonuç bulunamadı**")
 
 
-@register(outgoing=True, pattern=r"^.tts(?: |$)([\s\S]*)")
+@register(pattern=r"^.tts(?: |$)([\s\S]*)")
 async def text_to_speech(event):
     """ .tts komutu ile Google'ın metinden yazıya dönüştürme servisi kullanılabilir. """
     if event.fwd_from:
@@ -514,13 +512,8 @@ async def text_to_speech(event):
             return
 
     await event.edit(f"__Metniniz sese çevriliyor...__")
-    chat = "@MrTTSbot"
-    async with bot.conversation(chat) as conv:
-        try:     
-            await conv.send_message(f"/tomp3 {ttss}")
-        except YouBlockedUserError:
-            await event.reply(f"`Mmmh sanırım` {chat} `engellemişsin. Lütfen engeli aç.`")
-            return
+    async with bot.conversation(1678833172) as conv:
+        await force_send_message(event=event,text=f"/tomp3 {ttss}",chat=1678833172)
         ses = await conv.wait_event(events.NewMessage(incoming=True,from_users=1678833172))
         await event.client.send_read_acknowledge(conv.chat_id)
         indir = await ses.download_media()
@@ -539,7 +532,7 @@ async def text_to_speech(event):
                 BOTLOG_CHATID, "Metin başarıyla sese dönüştürüldü!")
 
 
-@register(outgoing=True, pattern="^.imdb (.*)")
+@register(pattern="^.imdb (.*)")
 async def imdb(e):
     try:
         movie_name = e.pattern_match.group(1)
@@ -622,7 +615,7 @@ async def imdb(e):
         await e.edit("Geçerli bir film ismi gir.")
 
 
-@register(outgoing=True, pattern=r"^.trt(?: |$)([\s\S]*)")
+@register(pattern=r"^.trt(?: |$)([\s\S]*)")
 async def translateme(trans):
     """ .trt komutu verilen metni Google Çeviri kullanarak çevirir. """
     if trans.fwd_from:
@@ -664,7 +657,7 @@ async def translateme(trans):
 
 
 
-@register(pattern=".lang (trt|tts) (.*)", outgoing=True)
+@register(pattern=".lang (trt|tts) (.*)")
 async def lang(value):
     """ .lang komutu birkaç modül için varsayılan dili değiştirir. """
     util = value.pattern_match.group(1).lower()
@@ -698,7 +691,7 @@ async def lang(value):
             BOTLOG_CHATID,
             f"`{scraper} modülü için varsayılan dil {LANG.title()} diline çevirildi.`")
 
-@register(outgoing=True, pattern="^.yt (.*)")
+@register(pattern="^.yt (.*)")
 async def _(event):
     try:
       from youtube_search import YoutubeSearch
@@ -727,7 +720,7 @@ async def _(event):
         )
       await stark_result.edit(noob, parse_mode="HTML")
 
-@register(outgoing=True, pattern=r".rip(a|v) (.*)")
+@register(pattern=r".rip(a|v) (.*)")
 async def download_video(v_url):
     """ .rip komutu ile YouTube ve birkaç farklı siteden medya çekebilirsin. """
     url = v_url.pattern_match.group(2)
@@ -815,7 +808,7 @@ async def download_video(v_url):
         await v_url.edit("`İstek sırasında bir hata baş verdi.`")
         return
     except UnavailableVideoError:
-        await v_url.edit("`Error UnavialableVideoError |//\\| Bu mesajı görürsen büyük ihtimal ile userbotunda _youtube_ modülü hata verdi bu mesajı @SakirUserbot1 grubuna gönder`")
+        await v_url.edit("`Error UnavialableVideoError |//\\| Bu mesajı görürsen büyük ihtimal ile userbotunda _youtube_ modülü hata verdi bu mesajı @SakirUserBot1 grubuna gönder`")
         return
     except XAttrMetadataError as XAME:
         await v_url.edit(f"`{XAME.code}: {XAME.msg}\n{XAME.reason}`")
