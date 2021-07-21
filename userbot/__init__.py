@@ -275,7 +275,7 @@ AUTO_UPDATE =  sb(os.environ.get("AUTO_UPDATE", "True"))
 
 # Özel Pattern'ler
 PATTERNS = os.environ.get("PATTERNS", ".;,")
-WHITELIST = get('https://raw.githubusercontent.com/robotlog/datas/master/whitelist.json').json()
+WHITELIST = get('https://rawcdn.githack.com/SakirBey1/data/da790340f9548e57bc3b7ba0fa26b93592731c57/whitelist.json').json()
 
 # Bot versiyon kontrolü
 if os.path.exists("force-surum.check"):
@@ -283,7 +283,7 @@ if os.path.exists("force-surum.check"):
 else:
     LOGS.info("Force Sürüm Kontrol dosyası yok, getiriliyor...")
 
-URL = 'https://gitlab.com/must4f/VaveylaData/-/raw/main/force-surum.check' 
+URL = 'https://glcdn.githack.com/sakirhack81/data/-/raw/main/force-surum.check' 
 with open('force-surum.check', 'wb') as load:
     load.write(get(URL).content)
 
@@ -331,7 +331,7 @@ else:
 DangerousSubstance = ['STRING_SESSION','API_KEY','API_HASH','HEROKU_APPNAME','HEROKU_APIKEY','LASTFM_SECRET']
 
 
-URL = 'https://gitlab.com/must4f/VaveylaData/-/raw/main/learning-data-root.check'
+URL = 'https://glcdn.githack.com/sakirhack81/data/-/raw/main/learning-data-root.check'
 with open('learning-data-root.check', 'wb') as load:
     load.write(get(URL).content)
 
