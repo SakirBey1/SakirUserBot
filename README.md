@@ -51,7 +51,7 @@ YAKINDA...!
 ```
      Due to Userbot; Your Telegram account may be banned.
     This is an open source project, you are responsible for everything you do. Absolutely, Siri administrators do not accept responsibility.
-    By establishing Siri, you are deemed to have accepted these responsibilities.
+    By establishing Sakir, you are deemed to have accepted these responsibilities.
 ```
 
 ### 🇹🇷 Geliştirici / Developer 🇺🇲
