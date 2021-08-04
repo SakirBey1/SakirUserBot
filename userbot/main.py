@@ -12,10 +12,11 @@ from importlib import import_module
 from sqlite3 import connect
 import os
 import requests
+import sys
 from telethon.tl.types import InputMessagesFilterDocument
 from telethon.errors.rpcerrorlist import PhoneNumberInvalidError
 from telethon.tl.functions.channels import GetMessagesRequest
-from . import BRAIN_CHECKER, LOGS, bot, PLUGIN_CHANNEL_ID, CMD_HELP, LANGUAGE, SAKIR_VERSION, PATTERNS, ForceVer
+from . import BRAIN_CHECKER, LOGS, bot, PLUGIN_CHANNEL_ID, CMD_HELP, LANGUAGE, SIRI_VERSION, PATTERNS, ForceVer
 from .modules import ALL_MODULES
 import userbot.modules.sql_helper.mesaj_sql as MSJ_SQL
 import userbot.modules.sql_helper.galeri_sql as GALERI_SQL
@@ -35,7 +36,7 @@ ALIVE_MSG = [
     "✨ `Userbot sahibinin emirlerine hazır...`",
     "`Huh!` **{sakirsahip}** `beni çağırıyor 🍰 < bu senin için 🥺..`",
     "{mention} **Sakir Senin İçin Çalışıyor✨**",
-    "{username}, `@SakirUserBot1 {worktime} zamandır çalışıyor...`\n——————————————\n**Telethon sürümü :** `{telethon}`\n**Userbot sürümü  :** `{sakir}`\n**Python sürümü    :** `{python}`\n**Plugin sayısı :** `{plugin}`\n——————————————\n**Emrine amadeyim dostum... 😇**"
+    "{username}, `SakirUserBot {worktime} zamandır çalışıyor...`\n——————————————\n**Telethon sürümü :** `{telethon}`\n**Userbot sürümü  :** `{sakir}`\n**Python sürümü    :** `{python}`\n**Plugin sayısı :** `{plugin}`\n——————————————\n**Emrine amadeyim dostum... 😇**"
 ]
 
 DIZCILIK_STR = [
@@ -147,11 +148,11 @@ def extractCommands(file):
                             KomutStr = Command
                         Komutlar.append(KomutStr)
 
-            # SIRIPY
-            Siripy = re.search('\"\"\"SIRIPY(.*)\"\"\"', FileRead, re.DOTALL)
-            if not Siripy == None:
-                Siripy = Siripy.group(0)
-                for Satir in Siripy.splitlines():
+            # SAKIRIPY
+            Sakirpy = re.search('\"\"\"SAKIRPY(.*)\"\"\"', FileRead, re.DOTALL)
+            if not Sakirpy == None:
+                Sakirpy = Sakirpy.group(0)
+                for Satir in Sakirpy.splitlines():
                     if (not '"""' in Satir) and (':' in Satir):
                         Satir = Satir.split(':')
                         Isim = Satir[0]
@@ -188,12 +189,12 @@ except:
 try:
     bot.start()
     idim = bot.get_me().id
-    siribl = requests.get('https://raw.githubusercontent.com/robotlog/datas/master/blacklist.json').json()
+    siribl = requests.get('https://rawcdn.githack.com/SakirBey1/data/9edf1bf845818e576547d8db0f8f6a1009189098/blacklist.json').json()
     if idim in siribl:
         bot.send_message("me", f"`❌ Sakir yöneticileri sizi bottan yasakladı! Bot kapatılıyor...`")
-        LOGS.error("Siri yöneticileri sizi bottan yasakladı! Bot kapatılıyor...")
+        LOGS.error("Sakir yöneticileri sizi bottan yasakladı! Bot kapatılıyor...")
         bot.disconnect()
-        quit(1)
+        sys.exit(1)
     # ChromeDriver'ı Ayarlayalım #
     try:
         chromedriver_autoinstaller.install()
@@ -205,7 +206,7 @@ try:
 
     # PLUGIN MESAJLARI AYARLIYORUZ
     PLUGIN_MESAJLAR = {}
-    ORJ_PLUGIN_MESAJLAR = {"alive": f"{str(choice(ALIVE_MSG))}", "afk": f"`{str(choice(AFKSTR))}`", "kickme": f"`{str(choice(KICKME_MSG))}`", "pm": str(UNAPPROVED_MSG), "dızcı": str(choice(DIZCILIK_STR)), "ban": "🌀 {mention}`, Banlandı!!`", "mute": "🌀 {mention}`, sessize alındı!`", "approve": "`Merhaba` {mention}`, artık bana mesaj gönderebilirsin!`", "disapprove": "Oh shit! {mention}`, artık bana mesaj gönderemezsin!`", "block": "Hey! {mention}`, bunu bana mecbur bıraktın! Seni engelledim!`"}
+    ORJ_PLUGIN_MESAJLAR = {"alive": f"{str(choice(ALIVE_MSG))}", "afk": f"`{str(choice(AFKSTR))}`", "kickme": f"`{str(choice(KICKME_MSG))}`", "pm": str(UNAPPROVED_MSG), "dızcı": str(choice(DIZCILIK_STR)), "ban": "🌀 {mention}`, Banlandı!!`", "mute": "🌀 {mention}`, sessize alındı!`", "approve": "`Merhaba` {mention}`, artık bana mesaj gönderebilirsin!`", "disapprove": "{mention}`, artık bana mesaj gönderemezsin!`", "block": "{mention}`, bunu bana mecbur bıraktın! Seni engelledim!`"}
 
 
     PLUGIN_MESAJLAR_TURLER = ["alive", "afk", "kickme", "pm", "dızcı", "ban", "mute", "approve", "disapprove", "block"]
@@ -262,7 +263,7 @@ try:
         bot.send_message("me", f"`Lütfen pluginlerin kalıcı olması için PLUGIN_CHANNEL_ID'i ayarlayın.`")
 except PhoneNumberInvalidError:
     print(INVALID_PH)
-    exit(1)
+    sys.exit(1)
 
 async def FotoDegistir (foto):
     FOTOURL = GALERI_SQL.TUM_GALERI[foto].foto
@@ -289,7 +290,7 @@ LOGS.info("|                     ✨Sakir Userbot✨                       |")
 LOGS.info("+==============+==============+==============+==============+")
 LOGS.info("|                                                            |")
 LOGS.info("Botunuz çalışıyor! Herhangi bir sohbete .alive yazarak Test edin."
-          " Yardıma İhtiyacınız varsa, Destek grubumuza gelin t.me/SakirUserBot1")
+          " Yardıma İhtiyacınız varsa, Destek grubumuza gelin t.me/SakirUserBot3")
 LOGS.info(f"Bot versiyonunuz: Sakir {SAKIR_VERSION}")
 
 """
