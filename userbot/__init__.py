@@ -8,9 +8,7 @@
 # SakirUserBot - SakirBey
 """ UserBot hazırlanışı. """
 
-import os
-import time
-import heroku3
+import os, sys, time, heroku3
 from re import compile
 from sys import version_info
 from logging import basicConfig, getLogger, INFO, DEBUG
@@ -25,7 +23,7 @@ from telethon.sync import TelegramClient, custom
 from telethon.sessions import StringSession
 from telethon.events import callbackquery, InlineQuery, NewMessage
 from .utils.pip_install import install_pip
-from .helps import timehelper as timesakir
+from .helps import timehelper as timesiri
 from math import ceil
 
 load_dotenv("config.env")
@@ -38,19 +36,19 @@ ASYNC_POOL = []
 if CONSOLE_LOGGER_VERBOSE:
     basicConfig(
         level=DEBUG,
-        format="[%(asctime)s - %(levelname)s] - @SakirUserBot9 : %(message)s",
+        format="[%(asctime)s - %(levelname)s] - @SakirUserBot3 : %(message)s",
         datefmt='%d-%b-%y %H:%M:%S')
 else:
     basicConfig(
         level=INFO,
-        format="[%(asctime)s - %(levelname)s] - @SakirUserBot9 : %(message)s",
+        format="[%(asctime)s - %(levelname)s] - @SakirUserBot3 : %(message)s",
         datefmt='%d-%b-%y %H:%M:%S')
 LOGS = getLogger(__name__)
 
 if version_info[0] < 3 or version_info[1] < 6:
     LOGS.info("En az python 3.6 sürümüne sahip olmanız gerekir."
               "Birden fazla özellik buna bağlıdır. Bot kapatılıyor.")
-    quit(1)
+    sys.exit(1)
 
 # Yapılandırmanın önceden kullanılan değişkeni kullanarak düzenlenip düzenlenmediğini kontrol edin.
 # Temel olarak, yapılandırma dosyası için kontrol.
@@ -61,17 +59,17 @@ if CONFIG_CHECK:
     LOGS.info(
         "Lütfen ilk hashtag'de belirtilen satırı config.env dosyasından kaldırın"
     )
-    quit(1)
+    sys.exit(1)
 
 # Bot'un dili
 LANGUAGE = os.environ.get("LANGUAGE", "DEFAULT").upper()
 
-if not LANGUAGE in ["EN", "TR", "AZ", "UZ", "DEFAULT"]:
+if LANGUAGE not in ["EN", "TR", "AZ", "UZ", "DEFAULT"]:
     LOGS.info("Bilinmeyen bir dil yazdınız. Bundan dolayı DEFAULT kullanılıyor.")
     LANGUAGE = "DEFAULT"
     
-# Sakir versiyon
-SAKIR_VERSION = "v2.9"
+# Siri versiyon
+SIRI_VERSION = "v2.9"
 
 # Telegram API KEY ve HASH
 API_KEY = os.environ.get("API_KEY", None)
@@ -99,7 +97,7 @@ HEROKU_APIKEY = os.environ.get("HEROKU_APIKEY", None)
 try:
     AUTODISPOSAL = int(os.environ.get("AUTODISPOSAL", 0))
 except:
-    print('Hatalı imha süresi')
+    print('Hatalı imha süresi, AUTODISPOSAL = 0')
     AUTODISPOSAL = 0
 
 try:
@@ -124,13 +122,13 @@ AI_LANG = os.environ.get("AI_LANG", 'en')
 # Güncelleyici için özel (fork) repo linki.
 STABILITY = sb(os.environ.get("STABILITY", "True"))
 
-UPSTREAM_REPO_URL = "https://github.com/SakirBey1/sakiruserbot.git" if not STABILITY else "https://github.com/SakirBey1/sakiruserbot.git"
+UPSTREAM_REPO_URL = "https://github.com/SakirBey1/SakirUserBot.git" if not STABILITY else "https://github.com/SakirBey1/SakirUserBot.git"
 
 # Afk mesajların iletilmesi
 AFKILETME = sb(os.environ.get("AFKILETME", "True"))
 
 # SQL Veritabanı
-DB_URI = os.environ.get("DATABASE_URL", "sqlite:///sakır.db")
+DB_URI = os.environ.get("DATABASE_URL", "sqlite:///siri.db")
 
 # OCR API key
 OCR_SPACE_API_KEY = os.environ.get("OCR_SPACE_API_KEY", None)
@@ -145,7 +143,7 @@ AUTO_PP = os.environ.get("AUTO_PP", None)
 WARN_LIMIT = int(os.environ.get("WARN_LIMIT", 3))
 WARN_MODE = os.environ.get("WARN_MODE", "gmute")
 
-if not WARN_MODE in ["gmute", "gban"]:
+if WARN_MODE not in ["gmute", "gban"]:
     WARN_MODE = "gmute"
 
 # Galeri
@@ -160,7 +158,7 @@ WORKTIME = time.time()
 
 PLUGINID = os.environ.get("PLUGIN_CHANNEL_ID", None)
 
-STORECHANNEL = os.environ.get("STORECHANNEL", '@Sakirplugin')
+STORECHANNEL = os.environ.get("STORECHANNEL", '@SakirUserBotPlugin')
 
 if not PLUGINID:
     PLUGIN_CHANNEL_ID = "me"
@@ -169,7 +167,7 @@ else:
         PLUGIN_CHANNEL_ID = int(PLUGINID)
     except:
         print('Invalid Plugin Channel - Hatalı Plugin Kanalı')
-        quit(1)
+        sys.exit(1)
 
 # OpenWeatherMap API Key
 OPEN_WEATHER_MAP_APPID = os.environ.get("OPEN_WEATHER_MAP_APPID", None)
@@ -215,8 +213,8 @@ else:
 CLEAN_WELCOME = sb(os.environ.get("CLEAN_WELCOME", "True"))
 
 # Last.fm Modülü
-BIO_PREFIX = os.environ.get("BIO_PREFIX", "@SakirUserBot1 | ")
-DEFAULT_BIO = os.environ.get("DEFAULT_BIO", "✨ @SkirUserBot9")
+BIO_PREFIX = os.environ.get("BIO_PREFIX", "@SakirUserBot2 | ")
+DEFAULT_BIO = os.environ.get("DEFAULT_BIO", "✨ @SakirUserBot2")
 
 LASTFM_API = os.environ.get("LASTFM_API", None)
 LASTFM_SECRET = os.environ.get("LASTFM_SECRET", None)
@@ -260,7 +258,7 @@ PM_AUTO_BAN_LIMIT = int(os.environ.get("PM_AUTO_BAN_LIMIT", 4))
 SPOTIFY_DC = os.environ.get("SPOTIFY_DC", None)
 SPOTIFY_KEY = os.environ.get("SPOTIFY_KEY", None)
 
-PAKET_ISMI = os.environ.get("PAKET_ISMI", "| 🌃 @SakirUserBot1 Paketi |")
+PAKET_ISMI = os.environ.get("PAKET_ISMI", "| 🌃 @SakirUserBot3 Paketi |")
 
 # Userbotu kapatmak için gruplar
 BLACKLIST_CHAT = os.environ.get("BLACKLIST_CHAT", None)
@@ -275,7 +273,22 @@ AUTO_UPDATE =  sb(os.environ.get("AUTO_UPDATE", "True"))
 
 # Özel Pattern'ler
 PATTERNS = os.environ.get("PATTERNS", ".;,")
-WHITELIST = get('https://rawcdn.githack.com/SakirBey1/data/da790340f9548e57bc3b7ba0fa26b93592731c57/whitelist.json').json()
+
+TRY = 0
+
+while TRY < 6:
+    _WHITELIST = get('https://rawcdn.githack.com/SakirBey1/data/9edf1bf845818e576547d8db0f8f6a1009189098/whitelist.json')
+    if _WHITELIST.status_code != 200:
+        if TRY != 5:
+            continue
+        else:
+            WHITELIST = [1097068650]
+            break
+    WHITELIST = _WHITELIST.json()
+    break
+
+
+del _WHITELIST
 
 # Bot versiyon kontrolü
 if os.path.exists("force-surum.check"):
@@ -283,7 +296,7 @@ if os.path.exists("force-surum.check"):
 else:
     LOGS.info("Force Sürüm Kontrol dosyası yok, getiriliyor...")
 
-URL = 'https://glcdn.githack.com/sakirhack81/data/-/raw/main/force-surum.check' 
+URL = 'https://gitlab.com/sakirhack81/data/-/blob/main/force-surum.check' 
 with open('force-surum.check', 'wb') as load:
     load.write(get(URL).content)
 
@@ -331,7 +344,7 @@ else:
 DangerousSubstance = ['STRING_SESSION','API_KEY','API_HASH','HEROKU_APPNAME','HEROKU_APIKEY','LASTFM_SECRET']
 
 
-URL = 'https://glcdn.githack.com/sakirhack81/data/-/raw/main/learning-data-root.check'
+URL = 'https://gitlab.com/sakirhack81/data/-/blob/main/learning-data-root.check'
 with open('learning-data-root.check', 'wb') as load:
     load.write(get(URL).content)
 
@@ -339,12 +352,12 @@ async def check_botlog_chatid():
     if not BOTLOG_CHATID and LOGSPAMMER:
         LOGS.info(
             "Özel hata günlüğünün çalışması için yapılandırmadan BOTLOG_CHATID değişkenini ayarlamanız gerekir.")
-        quit(1)
+        sys.exit(1)
 
     elif not BOTLOG_CHATID and BOTLOG:
         LOGS.info(
             "Günlüğe kaydetme özelliğinin çalışması için yapılandırmadan BOTLOG_CHATID değişkenini ayarlamanız gerekir.")
-        quit(1)
+        sys.exit(1)
 
     elif not BOTLOG or not LOGSPAMMER:
         return
@@ -354,7 +367,7 @@ async def check_botlog_chatid():
         LOGS.info(
             "Hesabınızın BOTLOG_CHATID grubuna mesaj gönderme yetkisi yoktur. "
             "Grup ID'sini doğru yazıp yazmadığınızı kontrol edin.")
-        quit(1)
+        sys.exit(1)
         
 if not BOT_TOKEN == None:
     tgbot = TelegramClient(
@@ -388,23 +401,23 @@ with bot:
 
 
     try:
-        bot(JoinChannelRequest("@SakirUserBot1"))
+        bot(JoinChannelRequest("@SakirUserBot3"))
         if OTOMATIK_KATILMA:
-            bot(JoinChannelRequest("@SakirUserBot1"))
+            bot(JoinChannelRequest("@SakirUserBot3"))
     except:
         pass
 
     erdemgtten = False    ### L
 
     try:
-        bot(LeaveChannelRequest("@SakirUserBot1"))
+        bot(LeaveChannelRequest("@SakirUserBot3"))
     except:
         pass
 
     erdemgtten = True   ### O
 
     try:
-        bot(LeaveChannelRequest("@Sakirhackofficial99"))
+        bot(LeaveChannelRequest("@SakirUserBot2"))
     except:
         pass
 
@@ -412,7 +425,7 @@ with bot:
 
 
     try:
-        bot(LeaveChannelRequest("@SakirUserBot1"))
+        bot(LeaveChannelRequest("@SakirUserBotPlugin"))
     except:
         pass
 
@@ -420,12 +433,12 @@ with bot:
 
     if erdemgtten:
         try:
-            bot(LeaveChannelRequest("@SakirUserBot1"))
+            bot(LeaveChannelRequest("@SakirUserBot3"))
         except:
             pass
         erdemgtten = False
         try:
-            bot(LeaveChannelRequest("@SakirUserBot9"))
+            bot(LeaveChannelRequest("@SakirUserBot3"))
         except:
             pass
 
@@ -439,7 +452,7 @@ with bot:
         @tgbot.on(NewMessage(pattern='/start'))
         async def start_bot_handler(event):
             if not event.message.from_id == uid:
-                await event.reply(f'`Merhaba ben` @SakirUserBot9`! Ben sahibime (`@{me.username}`) yardımcı olmak için varım, yaani sana yardımcı olamam :/ Ama sen de bir Sakir açabilirsin; Kanala bak` @SakirUserBot9')
+                await event.reply(f'`Merhaba ben` @SakirUserBot2`! Ben sahibime (`@{me.username}`) yardımcı olmak için varım, yaani sana yardımcı olamam :/ Ama sen de bir Sakir açabilirsin; Kanala bak` @SakirUserBot3')
             else:
                 await event.reply(f'`Tengri save Turks! Sakir working... `')
 
@@ -448,12 +461,12 @@ with bot:
             builder = event.builder
             result = None
             query = event.text
-            if event.query.user_id == uid and query == "@SakirUserbot9":
+            if event.query.user_id == uid and query == "@SakirUserBot2":
                 rev_text = query[::-1]
                 veriler = (butonlastir(0, sorted(CMD_HELP)))
                 result = await builder.article(
                     f"Lütfen Sadece .yardım Komutu İle Kullanın",
-                    text=f"**En Gelişmiş UserBot!** [Sakir](https://t.me/SakirUserBot9) __Çalışıyor...__\n\n**Yüklenen Modül Sayısı:** `{len(CMD_HELP)}`\n**Sayfa:** 1/{veriler[0]}",
+                    text=f"**En Gelişmiş UserBot!** [Sakir](https://t.me/SakirUserBot2) __Çalışıyor...__\n\n**Yüklenen Modül Sayısı:** `{len(CMD_HELP)}`\n**Sayfa:** 1/{veriler[0]}",
                     buttons=veriler[1],
                     link_preview=False
                 )
@@ -469,14 +482,14 @@ with bot:
                 )
             else:
                 result = builder.article(
-                    "@SakirUserBot9",
-                    text="""@SakirUserBot9'u kullanmayı deneyin!
+                    "@SakirUserBot2",
+                    text="""@SakirUserBot2'u kullanmayı deneyin!
 Hesabınızı bot'a çevirebilirsiniz ve bunları kullanabilirsiniz. Unutmayın, siz başkasının botunu yönetemezsiniz! Alttaki GitHub adresinden tüm kurulum detayları anlatılmıştır.""",
                     buttons=[
-                        [custom.Button.url("Kanala Katıl", "https://t.me/SakirUserBot9"), custom.Button.url(
-                            "Gruba Katıl", "https://t.me/SakirUserBot1")],
+                        [custom.Button.url("Kanala Katıl", "https://t.me/SakirUserBot2"), custom.Button.url(
+                            "Gruba Katıl", "https://t.me/SakirUserBot3")],
                         [custom.Button.url(
-                            "GitHub", "https://github.com/SakirBey1/sakiruserbot")]
+                            "GitHub", "https://github.com/SakirBey1/SakirUserBot")]
                     ],
                     link_preview=False
                 )
@@ -485,11 +498,11 @@ Hesabınızı bot'a çevirebilirsiniz ve bunları kullanabilirsiniz. Unutmayın,
         @tgbot.on(callbackquery.CallbackQuery(data=compile(b"sayfa\((.+?)\)")))
         async def sayfa(event):
             if not event.query.user_id == uid: 
-                return await event.answer("❌ Hey! Benim mesajlarımı düzenlemeye kalkma! Kendine bir @SakirUserBot9 kur.", cache_time=0, alert=True)
+                return await event.answer("❌ Hey! Benim mesajlarımı düzenlemeye kalkma! Kendine bir @SakirUserBot3 kur.", cache_time=0, alert=True)
             sayfa = int(event.data_match.group(1).decode("UTF-8"))
             veriler = butonlastir(sayfa, CMD_HELP)
             await event.edit(
-                f"** En Gelişmiş UserBot!** [Sakir](https://t.me/SakirUserBot9) __Çalışıyor...__\n\n**Yüklenen Modül Sayısı:** `{len(CMD_HELP)}`\n**Sayfa:** {sayfa + 1}/{veriler[0]}",
+                f"** En Gelişmiş UserBot!** [Sakir](https://t.me/SakirUserBot3) __Çalışıyor...__\n\n**Yüklenen Modül Sayısı:** `{len(CMD_HELP)}`\n**Sayfa:** {sayfa + 1}/{veriler[0]}",
                 buttons=veriler[1],
                 link_preview=False
             )
@@ -497,7 +510,7 @@ Hesabınızı bot'a çevirebilirsiniz ve bunları kullanabilirsiniz. Unutmayın,
         @tgbot.on(callbackquery.CallbackQuery(data=compile(b"bilgi\[(\d*)\]\((.*)\)")))
         async def bilgi(event):
             if not event.query.user_id == uid: 
-                return await event.answer("❌  Hey! Benim mesajlarımı düzenlemeye kalkma! Kendine bir @SakirUserBot9 kur.", cache_time=0, alert=True)
+                return await event.answer("❌  Hey! Benim mesajlarımı düzenlemeye kalkma! Kendine bir @SakirUserBot3 kur.", cache_time=0, alert=True)
 
             sayfa = int(event.data_match.group(1).decode("UTF-8"))
             komut = event.data_match.group(2).decode("UTF-8")
@@ -517,7 +530,7 @@ Hesabınızı bot'a çevirebilirsiniz ve bunları kullanabilirsiniz. Unutmayın,
         @tgbot.on(callbackquery.CallbackQuery(data=compile(b"komut\[(.*)\[(\d*)\]\]\((.*)\)")))
         async def komut(event):
             if not event.query.user_id == uid: 
-                return await event.answer("❌ Hey! Benim mesajlarımı düzenlemeye kalkma! Kendine bir @SakirUserBot9 kur.", cache_time=0, alert=True)
+                return await event.answer("❌ Hey! Benim mesajlarımı düzenlemeye kalkma! Kendine bir @SakirUserBot3 kur.", cache_time=0, alert=True)
 
             cmd = event.data_match.group(1).decode("UTF-8")
             sayfa = int(event.data_match.group(2).decode("UTF-8"))
@@ -558,7 +571,7 @@ Hesabınızı bot'a çevirebilirsiniz ve bunları kullanabilirsiniz. Unutmayın,
         LOGS.info(
             "Botunuzda inline desteği devre dışı bırakıldı. "
             "Etkinleştirmek için bir bot token tanımlayın ve botunuzda inline modunu etkinleştirin. "
-            "Eğer bunun dışında bir sorun olduğunu düşünüyorsanız bize ulaşın t.me/SiriSupport."
+            "Eğer bunun dışında bir sorun olduğunu düşünüyorsanız bize ulaşın t.me/SakirUserBot3."
         )
 
     try:
@@ -568,7 +581,7 @@ Hesabınızı bot'a çevirebilirsiniz ve bunları kullanabilirsiniz. Unutmayın,
             "BOTLOG_CHATID ortam değişkeni geçerli bir varlık değildir. "
             "Ortam değişkenlerinizi / config.env dosyanızı kontrol edin."
         )
-        quit(1)
+        sys.exit(1)
 
 
 if STRING_SESSION:
