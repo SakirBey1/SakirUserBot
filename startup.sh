@@ -9,8 +9,8 @@
 nowtime=$(date)
 echo "
 SakirUserBot
-(C) @SakirUserBot1
-Thx @DevsExpo.
+(C) @UserBots0
+Thx @SakirBey1.
 Time : $nowtime
 "
 update_and_install_packages () {
