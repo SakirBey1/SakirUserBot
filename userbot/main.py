@@ -290,7 +290,7 @@ LOGS.info("|                     ✨Sakir Userbot✨                       |")
 LOGS.info("+==============+==============+==============+==============+")
 LOGS.info("|                                                            |")
 LOGS.info("Botunuz çalışıyor! Herhangi bir sohbete .alive yazarak Test edin."
-          " Yardıma İhtiyacınız varsa, Destek grubumuza gelin t.me/SakirUserBot3")
+          " Yardıma İhtiyacınız varsa, Destek grubumuza gelin t.me/UserBots0")
 LOGS.info(f"Bot versiyonunuz: Sakir {SAKIR_VERSION}")
 
 """
