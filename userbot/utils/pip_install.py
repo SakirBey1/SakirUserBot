@@ -1,6 +1,6 @@
-# SiriUserBot - Pip Install
+# SakirUserBot - Pip Install
 
-#Credit: sandy1709
+#Credit: SakirBey1
 
 
 from subprocess import PIPE, Popen
