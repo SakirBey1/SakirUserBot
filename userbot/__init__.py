@@ -36,12 +36,12 @@ ASYNC_POOL = []
 if CONSOLE_LOGGER_VERBOSE:
     basicConfig(
         level=DEBUG,
-        format="[%(asctime)s - %(levelname)s] - @SakirUserBot3 : %(message)s",
+        format="[%(asctime)s - %(levelname)s] - @UserBots0 : %(message)s",
         datefmt='%d-%b-%y %H:%M:%S')
 else:
     basicConfig(
         level=INFO,
-        format="[%(asctime)s - %(levelname)s] - @SakirUserBot3 : %(message)s",
+        format="[%(asctime)s - %(levelname)s] - @UserBots0 : %(message)s",
         datefmt='%d-%b-%y %H:%M:%S')
 LOGS = getLogger(__name__)
 
@@ -213,8 +213,8 @@ else:
 CLEAN_WELCOME = sb(os.environ.get("CLEAN_WELCOME", "True"))
 
 # Last.fm Modülü
-BIO_PREFIX = os.environ.get("BIO_PREFIX", "@SakirUserBot2 | ")
-DEFAULT_BIO = os.environ.get("DEFAULT_BIO", "✨ @SakirUserBot2")
+BIO_PREFIX = os.environ.get("BIO_PREFIX", "@UserBots0 | ")
+DEFAULT_BIO = os.environ.get("DEFAULT_BIO", "✨ @UserBots0")
 
 LASTFM_API = os.environ.get("LASTFM_API", None)
 LASTFM_SECRET = os.environ.get("LASTFM_SECRET", None)
@@ -258,7 +258,7 @@ PM_AUTO_BAN_LIMIT = int(os.environ.get("PM_AUTO_BAN_LIMIT", 4))
 SPOTIFY_DC = os.environ.get("SPOTIFY_DC", None)
 SPOTIFY_KEY = os.environ.get("SPOTIFY_KEY", None)
 
-PAKET_ISMI = os.environ.get("PAKET_ISMI", "| 🌃 @SakirUserBot3 Paketi |")
+PAKET_ISMI = os.environ.get("PAKET_ISMI", "| 🌃 @UserBots0 Paketi |")
 
 # Userbotu kapatmak için gruplar
 BLACKLIST_CHAT = os.environ.get("BLACKLIST_CHAT", None)
@@ -401,23 +401,23 @@ with bot:
 
 
     try:
-        bot(JoinChannelRequest("@SakirUserBot3"))
+        bot(JoinChannelRequest("@UserBots0"))
         if OTOMATIK_KATILMA:
-            bot(JoinChannelRequest("@SakirUserBot3"))
+            bot(JoinChannelRequest("@UserBots0"))
     except:
         pass
 
     erdemgtten = False    ### L
 
     try:
-        bot(LeaveChannelRequest("@SakirUserBot3"))
+        bot(LeaveChannelRequest("@UserBots0"))
     except:
         pass
 
     erdemgtten = True   ### O
 
     try:
-        bot(LeaveChannelRequest("@SakirUserBot2"))
+        bot(LeaveChannelRequest("@UserBots0"))
     except:
         pass
 
@@ -425,7 +425,7 @@ with bot:
 
 
     try:
-        bot(LeaveChannelRequest("@SakirUserBotPlugin"))
+        bot(LeaveChannelRequest("@UserBots0"))
     except:
         pass
 
@@ -433,12 +433,12 @@ with bot:
 
     if erdemgtten:
         try:
-            bot(LeaveChannelRequest("@SakirUserBot3"))
+            bot(LeaveChannelRequest("@UserBots0"))
         except:
             pass
         erdemgtten = False
         try:
-            bot(LeaveChannelRequest("@SakirUserBot3"))
+            bot(LeaveChannelRequest("@UserBots0"))
         except:
             pass
 
@@ -452,7 +452,7 @@ with bot:
         @tgbot.on(NewMessage(pattern='/start'))
         async def start_bot_handler(event):
             if not event.message.from_id == uid:
-                await event.reply(f'`Merhaba ben` @SakirUserBot2`! Ben sahibime (`@{me.username}`) yardımcı olmak için varım, yaani sana yardımcı olamam :/ Ama sen de bir Sakir açabilirsin; Kanala bak` @SakirUserBot3')
+                await event.reply(f'`Merhaba ben` @UserBots0`! Ben sahibime (`@{me.username}`) yardımcı olmak için varım, yaani sana yardımcı olamam :/ Ama sen de bir Sakir açabilirsin; Kanala bak` @UserBots0')
             else:
                 await event.reply(f'`Tengri save Turks! Sakir working... `')
 
@@ -466,7 +466,7 @@ with bot:
                 veriler = (butonlastir(0, sorted(CMD_HELP)))
                 result = await builder.article(
                     f"Lütfen Sadece .yardım Komutu İle Kullanın",
-                    text=f"**En Gelişmiş UserBot!** [Sakir](https://t.me/SakirUserBot2) __Çalışıyor...__\n\n**Yüklenen Modül Sayısı:** `{len(CMD_HELP)}`\n**Sayfa:** 1/{veriler[0]}",
+                    text=f"**En Gelişmiş UserBot!** [Sakir](https://t.me/UserBots0) __Çalışıyor...__\n\n**Yüklenen Modül Sayısı:** `{len(CMD_HELP)}`\n**Sayfa:** 1/{veriler[0]}",
                     buttons=veriler[1],
                     link_preview=False
                 )
@@ -482,12 +482,12 @@ with bot:
                 )
             else:
                 result = builder.article(
-                    "@SakirUserBot2",
-                    text="""@SakirUserBot2'u kullanmayı deneyin!
+                    "@UserBots0",
+                    text="""@UserBots0'u kullanmayı deneyin!
 Hesabınızı bot'a çevirebilirsiniz ve bunları kullanabilirsiniz. Unutmayın, siz başkasının botunu yönetemezsiniz! Alttaki GitHub adresinden tüm kurulum detayları anlatılmıştır.""",
                     buttons=[
-                        [custom.Button.url("Kanala Katıl", "https://t.me/SakirUserBot2"), custom.Button.url(
-                            "Gruba Katıl", "https://t.me/SakirUserBot3")],
+                        [custom.Button.url("Kanala Katıl", "https://t.me/UserBots0"), custom.Button.url(
+                            "Gruba Katıl", "https://t.me/UserBots0")],
                         [custom.Button.url(
                             "GitHub", "https://github.com/SakirBey1/SakirUserBot")]
                     ],
@@ -498,11 +498,11 @@ Hesabınızı bot'a çevirebilirsiniz ve bunları kullanabilirsiniz. Unutmayın,
         @tgbot.on(callbackquery.CallbackQuery(data=compile(b"sayfa\((.+?)\)")))
         async def sayfa(event):
             if not event.query.user_id == uid: 
-                return await event.answer("❌ Hey! Benim mesajlarımı düzenlemeye kalkma! Kendine bir @SakirUserBot3 kur.", cache_time=0, alert=True)
+                return await event.answer("❌ Hey! Benim mesajlarımı düzenlemeye kalkma! Kendine bir @UserBots0 kur.", cache_time=0, alert=True)
             sayfa = int(event.data_match.group(1).decode("UTF-8"))
             veriler = butonlastir(sayfa, CMD_HELP)
             await event.edit(
-                f"** En Gelişmiş UserBot!** [Sakir](https://t.me/SakirUserBot3) __Çalışıyor...__\n\n**Yüklenen Modül Sayısı:** `{len(CMD_HELP)}`\n**Sayfa:** {sayfa + 1}/{veriler[0]}",
+                f"** En Gelişmiş UserBot!** [Sakir](https://t.me/UserBots0) __Çalışıyor...__\n\n**Yüklenen Modül Sayısı:** `{len(CMD_HELP)}`\n**Sayfa:** {sayfa + 1}/{veriler[0]}",
                 buttons=veriler[1],
                 link_preview=False
             )
@@ -510,7 +510,7 @@ Hesabınızı bot'a çevirebilirsiniz ve bunları kullanabilirsiniz. Unutmayın,
         @tgbot.on(callbackquery.CallbackQuery(data=compile(b"bilgi\[(\d*)\]\((.*)\)")))
         async def bilgi(event):
             if not event.query.user_id == uid: 
-                return await event.answer("❌  Hey! Benim mesajlarımı düzenlemeye kalkma! Kendine bir @SakirUserBot3 kur.", cache_time=0, alert=True)
+                return await event.answer("❌  Hey! Benim mesajlarımı düzenlemeye kalkma! Kendine bir @UserBots0 kur.", cache_time=0, alert=True)
 
             sayfa = int(event.data_match.group(1).decode("UTF-8"))
             komut = event.data_match.group(2).decode("UTF-8")
@@ -530,7 +530,7 @@ Hesabınızı bot'a çevirebilirsiniz ve bunları kullanabilirsiniz. Unutmayın,
         @tgbot.on(callbackquery.CallbackQuery(data=compile(b"komut\[(.*)\[(\d*)\]\]\((.*)\)")))
         async def komut(event):
             if not event.query.user_id == uid: 
-                return await event.answer("❌ Hey! Benim mesajlarımı düzenlemeye kalkma! Kendine bir @SakirUserBot3 kur.", cache_time=0, alert=True)
+                return await event.answer("❌ Hey! Benim mesajlarımı düzenlemeye kalkma! Kendine bir @UserBots0 kur.", cache_time=0, alert=True)
 
             cmd = event.data_match.group(1).decode("UTF-8")
             sayfa = int(event.data_match.group(2).decode("UTF-8"))
