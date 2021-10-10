@@ -31,7 +31,7 @@
             "ALREADY_DELETED": "`The Plugin file has already deleted.`",
             "NOT_FOUND_PLUGIN": "`Maybe there was such a plugin, maybe there wasn't. But it's definitely not right now.`",
             "PLUG_DELETED": "`Plugin deleted successfully!` '**You need to restart operations to be implemented.**",
-            "SAKIR_PLUGIN_CAPTION": "This is a plugin of [Sakir](https://t.me/SakirUserBot9)."
+            "SAKIR_PLUGIN_CAPTION": "This is a plugin of [Sakir](https://t.me/UserBotplugins0)."
         },
 
         "__siri": {
@@ -113,7 +113,7 @@
             "ALREADY": "`It looks like %s is already changing automatically. `",
             "SETTING": "`%s setting...`",
             "BIO": "📅 Date: {tarih} | ⏰ Time: {saat} | ",
-            "NICK": "@SakirUserBot9",
+            "NICK": "@UserBots0",
             "SETTED": "`%s set :)`",
             "NAME": "⌚%s"
         },
@@ -166,8 +166,8 @@
             "EFECTING": "`Applying effect...`",
             "NOT_FOUND_EFECT": "**The effect you specified was not found! ** `Effects you can use:\" çocuk/robot/earrape/fast/interference/echo`",
             "NEED_VIDEO": "`Please reply to a Video!`",
-            "WITH_SIRI": "`Effect applied with` @SiriOT",
-            "WITH_SIRI_GIF": "`Turned to Gif with` @SiriOT",
+            "WITH_SAKIR": "`Effect applied with` @UserBots0",
+            "WITH_SAKIR_GIF": "`Turned to Gif with` @☺UserBots0",
             "CONVERTING_TO_GIF": "Turning to gif ...",
             "UPLOADING_GIF": "` Loading Gif ... `",
             "ERROR": "I couldn't turn it into a gif :/"
@@ -360,8 +360,8 @@
             "GOODMORNIN_YALL": "`Good Morning!`",
             "GOODBYE_MFRS": "`I'll see you... *Windows XP shutdown sound* `",
             "RESTARTING": "`Bot restarting...`",
-            "SUPPORT_GROUP": "[From Here](http://t.me/SakirUserBot9) you can contact our support group.",
-            "CREATOR": "Developer: @Sakirhackofficial99 .",
+            "SUPPORT_GROUP": "[From Here](http://t.me/UserbotSupport0) you can contact our support group.",
+            "CREATOR": "Developer: @SakirBey1 .",
             "README": "[Sakir README.md](https://github.com/SakirBey1/SakirUserBot/blob/master/README.md)",
             "REPO": "[Sakir Repo](https://github.com/SakirBey1/SakirUserBot)",
             "CHECK_LOGS": "`Check userbot logs for decoded message!`"
@@ -523,7 +523,7 @@
             "SEARCHING": "`Song searching...`",
             "BLOCKED_DEEZER": "`Mmmh, I think you blocked` @DeezerMusicBot `Please open the block.`",
             "NOT_FOUND": "` The song you were looking for was not found! I'm sorry.`",
-            "UPLOADED_WITH": "Upload with @SiriOT",
+            "UPLOADED_WITH": "Upload with @UserbotSupport0",
             "USAGE": "`Usage:` `.song song name/youtube url/spotify url`",
             "SEARCHING_SPOT": "Song searching and downloading please wait!",
             "DOWNLOADED": "`Download is successfully please wait.`",
