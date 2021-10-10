@@ -11,8 +11,8 @@
     "productivity"
   ],
   "repository": "https://github.com/SakirBey1/sakiruserbot",
-  "website":   "https://t.me/SakirUserBot1",
-  "success_url": "https://t.me/SakirUserBot1",
+  "website":   "https://t.me/UserBots0",
+  "success_url": "https://t.me/UserBots0",
   "stack": "container",
   "env": {
     "API_KEY": {
@@ -96,7 +96,7 @@
       "value": "False"
     },
     "BOT_USERNAME": {
-      "description": "Inline bot özelliğinin çalışması için gereklidir. Buraya botunuzun kullanıcı adınız yazmanız lazım (Örnek: @SakirUserBot1). Botunuz yok ise @BotFather yardımı ile bot oluşturabilirsiniz.",
+      "description": "Inline bot özelliğinin çalışması için gereklidir. Buraya botunuzun kullanıcı adınız yazmanız lazım (Örnek: @UserBots0). Botunuz yok ise @BotFather yardımı ile bot oluşturabilirsiniz.",
       "required": false  
     },
     "BOT_TOKEN": {
@@ -186,7 +186,7 @@
     }, 
     "DEFAULT_BIO": {
       "description": "Varsayılan profil biyografisi.",
-      "value": "@SakirUserBot1",
+      "value": "@UserBots0",
       "required": false
     },
     "G_DRIVE_CLIENT_SECRET": {
@@ -226,7 +226,7 @@
     },
     "PAKET_ISMI": {
       "description": "Dızla komutu paket ismini belirleyin. Paket ismi şöyle olacaktır: @KullanıcıAdın verdiğin değer 1",
-      "value": "@SiriUserBot Paketi",
+      "value": "@UserBots0 Paketi",
       "required": false
     },
     "OTOMATIK_KATILMA": {
