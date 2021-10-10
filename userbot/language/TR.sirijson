@@ -31,7 +31,7 @@
             "ALREADY_DELETED": "`Plugin dosyası zaten silinmiş.`",
             "NOT_FOUND_PLUGIN": "`Böyle bir plugin belki vardı, belki de yoktu. Ama şu an olmadığı kesin.`",
             "PLUG_DELETED": "`Plugin başarıyla silindi! Sakir yeniden başlatılıyor`",
-            "SAKIR_PLUGIN_CAPTION": "Bu bir [Sakir](https://t.me/SakirUserBot9) pluginidir."
+            "SAKIR_PLUGIN_CAPTION": "Bu bir [Sakir](https://t.me/UserBotplugins0) pluginidir."
         },
         
         "__siri": {
@@ -116,7 +116,7 @@
             "ALREADY": "`Görünüşe göre %s zaten otomatik olarak değişiyor.`",
             "SETTING": "`%s ayarlanıyor...`",
             "BIO": "📆 Tarih: {tarih} | ⏰ Saat: {saat} | ",
-            "NICK": "@SakirUserBot9",
+            "NICK": "@UserBots0",
             "SETTED": "`%s ayarlandı :)`",
             "NAME": "⌚%s"
         },
@@ -315,7 +315,7 @@
 
         "kyolla": {
             "REPLY_MESSAGE": "`Lütfen bir mesaja yanıt verin.`",
-            "SUCCESSFUL": "`Siri Mesajı Kayıtlı Mesajlar Bölümüne Yolladı!`"
+            "SUCCESSFUL": "`UserBot Mesajı Kayıtlı Mesajlar Bölümüne Yolladı!`"
         },
 
         "lastfm": {
@@ -375,8 +375,8 @@
             "GOODMORNIN_YALL": "`Günaydın!`",
             "GOODBYE_MFRS": "`Görüşürüz... *Windows XP kapanma sesi*`",
             "RESTARTING": "`Bot yeniden başlatılıyor...`",
-            "SUPPORT_GROUP": "[Buradan](http://t.me/SakirUserBot9) destek grubumuza ulaşabilirsiniz.",
-            "CREATOR": "Bu bot @Sakirhackofficial99 tarafından geliştirilmiştir. \n",
+            "SUPPORT_GROUP": "[Buradan](http://t.me/UserBots0) destek grubumuza ulaşabilirsiniz.",
+            "CREATOR": "Bu bot @SakirBey1 tarafından geliştirilmiştir. \n",
             "README": "[Sakir README.md](hhttps://github.com/SakirBey1/SakirUserBot/blob/master/README.md)",
             "REPO": "[Sakir Repo](https://github.com/SakirBey1/SakirUserBot)",
             "CHECK_LOGS": "`Çözülmüş mesaj için userbot loglarını kontrol et!`"
@@ -549,7 +549,7 @@
             "SEARCHING": "`Şarkı aranıyor...`",
             "BLOCKED_DEEZER": "`Mmmh sanırım` @DeezerMusicBot `engellemişsin. Lütfen engeli aç.",
             "NOT_FOUND": "`Aradığınız şarkı bulunamadı! Üzgünüm.`",
-            "UPLOADED_WITH": "@SakirUserBot9 ile yüklendi.",
+            "UPLOADED_WITH": "@UserBots0 ile yüklendi.",
             "USAGE": "`Kullanım:` `.song şarkı ismi/youtube url/spotify url`",
             "SEARCHING_SPOT": "`Şarkı aranıyor ve indiriliyor lütfen bekleyin!",
             "DOWNLOADED": "`İndirme işlemi başarılı lütfen bekleyiniz.`",
@@ -592,7 +592,7 @@
             "QUERY": "Sorgu",
             "RESULT": "Sonuç",
             "NOT_FOUND": "Bir şey bulunamadı",
-            "EXAMPLE": "`Bir örnek görmek için .siri pip komutunu kullanın.`"
+            "EXAMPLE": "`Bir örnek görmek için .sakir pip komutunu kullanın.`"
 
         },
 
@@ -666,7 +666,7 @@
         },
 
         "klon": {
-            "WLKLON": "`Siri yöneticileri klonlanmayı sevmiyor.`"
+            "WLKLON": "`Sakir yöneticileri klonlanmayı sevmiyor.`"
         },
 
         "whois": {
