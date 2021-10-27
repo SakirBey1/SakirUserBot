@@ -48,6 +48,10 @@ YAKINDA...!
     Sakir'i kurarak bu sorumlulukları kabul etmiş sayılırsınız.
 ```
 
+### 🚀 Deploy to heroku
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/SakirBey1/SakirUserBot)
+
+
 ```
      Due to Userbot; Your Telegram account may be banned.
     This is an open source project, you are responsible for everything you do. Absolutely, Siri administrators do not accept responsibility.
